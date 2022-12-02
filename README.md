@@ -22,34 +22,39 @@
 
 <table>
   <tr>
-    <td align="center" width="140px">
+    <td align="center" width="80px">
       <a href="https://github.com/endmoseung" target="_blank">
         <img src="https://avatars.githubusercontent.com/u/103626175?v=4" alt="김승모 프로필" />
       </a>
     </td>
-    <td align="center" width="140px">
+    <td align="center" width="80px">
       <a href="https://github.com/kangju2000" target="_blank">
         <img src="https://avatars.githubusercontent.com/u/23312485?v=4" alt="강주혁 프로필" />
       </a>
     </td>
-    <td align="center" width="140px">
+    <td align="center" width="80px">
       <a href="https://github.com/anottrx" target="_blank">
         <img src="https://avatars.githubusercontent.com/u/59449215?v=4" alt="구련아 프로필" />
       </a>
     </td>
-     <td align="center" width="140px">
+     <td align="center" width="80px">
       <a href="https://github.com/pangkyu" target="_blank">
         <img src="https://avatars.githubusercontent.com/u/75983289?v=4" alt="배성규 프로필" />
       </a>
     </td>
-    <td align="center" width="140px">
+    <td align="center" width="80px">
       <a href="https://github.com/cruelladevil" target="_blank">
         <img src="https://avatars.githubusercontent.com/u/87710730?v=4" alt="윤정민 프로필" />
       </a>
     </td>
-    <td align="center" width="140px">
+    <td align="center" width="80px">
       <a href="https://github.com/feb-dain" target="_blank">
         <img src="https://avatars.githubusercontent.com/u/108778921?v=4" alt="이다인 프로필" />
+      </a>
+    </td>
+    <td align="center" width="80px">
+      <a href="https://github.com/jlee0505" target="_blank">
+        <img src="https://avatars.githubusercontent.com/u/54488364?v=4" alt="이현정 프로필" />
       </a>
     </td>
   </tr>
@@ -82,6 +87,11 @@
     <td align="center">
       <a href="https://github.com/feb-dain" target="_blank">
         이다인
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/jlee0505" target="_blank">
+        이현정
       </a>
     </td>
   </tr>
