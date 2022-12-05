@@ -35,13 +35,13 @@
       </a>
     </td>
     <td align="center" width="92px">
-      <a href="https://github.com/nerdchanii" target="_blank">
-        <img src="https://avatars.githubusercontent.com/u/63002393?v=4" alt="김예찬 프로필" />
+      <a href="https://github.com/anottrx" target="_blank">
+        <img src="https://avatars.githubusercontent.com/u/59449215?v=4" alt="구련아 프로필" />
       </a>
     </td>
     <td align="center" width="92px">
-      <a href="https://github.com/anottrx" target="_blank">
-        <img src="https://avatars.githubusercontent.com/u/59449215?v=4" alt="구련아 프로필" />
+      <a href="https://github.com/nerdchanii" target="_blank">
+        <img src="https://avatars.githubusercontent.com/u/63002393?v=4" alt="김예찬 프로필" />
       </a>
     </td>
      <td align="center" width="92px">
@@ -77,13 +77,13 @@
       </a>
     </td>
     <td align="center">
-      <a href="https://github.com/nerdchanii" target="_blank">
-        김예찬
+      <a href="https://github.com/anottrx" target="_blank">
+        구련아
       </a>
     </td>
     <td align="center">
-      <a href="https://github.com/anottrx" target="_blank">
-        구련아
+      <a href="https://github.com/nerdchanii" target="_blank">
+        김예찬
       </a>
     </td>
     <td align="center">
@@ -114,6 +114,38 @@
 <div id="3"></div>
 
 ## 스터디 일정
+
+<table>
+  <thead>
+    <tr>
+      <th>파트</th>
+      <th>제목</th>
+      <th>날짜</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="14"><strong>파트 1<br />코어 자바스크립트</strong></td>
+      <td>01. 소개</td>
+      <td rowspan="6">2022.12.10(토)</td>
+    </tr>
+    <tr>
+      <td>02. 자바스크립트 기본</td>
+    </tr>
+    <tr>
+      <td>03. 코드 품질</td>
+    </tr>
+    <tr>
+      <td>04. 객체: 기본</td>
+    </tr>
+     <tr>
+      <td>05. 자료구조와 자료형</td>
+    </tr>
+     <tr>
+      <td>06. 함수 심화학습</td>
+    </tr>
+  </td>
+</table>
 
 <br />
 <br />
