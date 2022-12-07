@@ -232,5 +232,242 @@ Number("1234") //1234 <br>
 
 ## 1 - 8 operators
 ### 연산자
+연산자는 이미 다들 알고 있을것 같아서 특이점만 정리했습니다.
+### 연산자 우선순위
+![image](https://user-images.githubusercontent.com/103626175/206088161-ff0796db-19c0-4510-825f-deafd52fb89f.png)
+### 복합 할당 연산자
+```
+let n = 2;
+n = n + 5;
+n = n * 2;
+-----------
+let n =2;
+n+=5;
+m*=2;
+//위아래 값이 똑같다. 여기서 연산자`+`와 할당연산자`=`를 같이 쓰는걸 복합할당 연산자라고한다.
+```
+
+## 1 - 9 comparison
+### 비교 연산자
+자바스크립트에서 기본 수학 연산은 아래와 같은 문법을 사용해 표현할 수 있습니다.<br>
+* 보다 큼·작음: a > b, a < b
+* 보다 크거나·작거나 같음: a >= b, a <= b
+* 같음(동등): a == b. 등호 =가 두 개 연달아 오는 것에 유의하세요. a ​​= b와 같이 등호가 하나일 때는 할당을 의미합니다.
+* 같지 않음(부등): 같지 않음을 나타내는 수학 기호 ≠는 자바스크립트에선 a != b로 나타냅니다. 할당연산자 = 앞에 느낌표 !를 붙여서 표시합니다.
+* ==은 얕은비교 ===은 깊은비교고 ==은 지양합니다.
+
+## 1 - 10 if,else
+### if, else
+```js run
+if(a==="사람"){
+console.log("사람입니다")
+}else if(a==="동물"){
+console.log("동물입니다")
+}else{
+console.log("식물입니다.")
+}
+```
+위와 같이 소괄호안에 조건을 체크해서 분기별로 다른 문을 실행한다.
+### 조건부 연산자 '?'
+조건부 연산자 ? 는 조건에 따라 다른변수를 할당할떄 사용한다.<br>
+예를들어
+```js run
+const compare = a>b;
+const result = a?"a가 큼":"b가 큼"
+```
+#### 위처럼 분기별로 다른 값을 할당해야할떄 사용해야지 if문을 대신해서 사용하면 오히려 가독성을 해친다.
+
+### 다중 연산
+```js run
+let age = prompt('나이를 입력해주세요.', 18);
+
+let message = (age < 3) ? '아기야 안녕?' :
+  (age < 18) ? '안녕!' :
+  (age < 100) ? '환영합니다!' :
+  '나이가 아주 많으시거나, 나이가 아닌 값을 입력 하셨군요!';
+
+alert( message );
+```
+위처럼 다중?을 사용해서 연산이 가능하다.
+
+## 1 - 11 logical-operators
+논리 연산자라고 하며 ||(OR), &&(AND), !(NOT)이 있습니다.
+
+### || OR
+위의 연산자는 Boolean으로 봤을때 여러 인자가 하나라도 true라면 true를 리턴한다.
+```js run
+const a = true;
+const b = false;
+const c = true;
+console.log(a||b||c); //true
+```
+
+여기서 중요한것은 ||연산자는 첫 번째 truthy를 찾는다는것이다.
+```js run
+const a = false;
+const b = false;
+const c = "모승";
+console.log(a||b||c); //"모승"
+```
+만약에 위의 값에서 b==="중간이용"이라면 console창에서 "중간이용"을 출력할것이다.
+
+### && AND
+위의 연산자는 OR과 반대이고 여러 인자중 하나라도 False라면 False를 리턴한다.<br>
+그리고 OR과 다르게 첫 번째 falsy를 찾으며 모든값이 true라면 맨 마지막인자를 리턴한다.
+```js run
+const a = false;
+const b = "b";
+const c = "모승";
+console.log(a && b && c); //false
+```
+만약에 a값이 논리적으로 true인 값이라면 c의 값이 출력된다. "모승"
+
+<br>
+&&가 ||보다 우선순위가 높다. 먼저 계산한다.
+```js run
+      const a = false;
+      const b = "b";
+      const c = "c";
+      const d = "d";
+      console.log(a && b || c && d);
+```
+위에서 &&가 우선이기 때문에 먼저 연산하면 false || "d"가 되고 이를 다시 연산하면 "d"가 출력된다.
+
+### ! not
+NOT 연산자는 인수를 하나만 받고, 다음 순서대로 연산을 수행합니다.
+
+* 피연산자를 불린형(true / false)으로 변환합니다.
+* 1에서 변환된 값의 역을 반환합니다.
+```js run
+const a = "모승";
+console.log(!a); // "모승"은 문자열이기에 true로 변환되고 해당값의 역이기 때문에 false가 정답이다.
+```
+
+!NOT 연산자는 모든 논리연산자중에서 우선순위가 제일높다.
+
+## 1 - 12 nullish-coalescing-operator
+### nullish 병합 연산자 ??
+nullish 병합 연산자(nullish coalescing operator) ??를 사용하면 짧은 문법으로 여러 피연산자 중 그 값이 '확정되어있는' 변수를 찾을 수 있습니다.
+```run js
+let firstName = null;
+      let lastName = undefined;
+      let nickName = "바이올렛";
+      console.log(firstName ?? lastName ?? nickName); // "바이올렛"
+```
+위에서 nickName을 제외한 값은 정의되어 있지 않기 때문에 "바이올렛"이 리턴된다. 만약 nickName=null로 정의되있지 않다면 마지막에 정의되있지않은 값인 null이 리턴된다.
+
+### '??'와 '||'의 차이
+위에서 보면 ||연산자와 ??연산자가 얼핏 똑같아 보이는데 간단한 예로들자면
+```run js
+let firstName = null;
+      let lastName = false;
+      let nickName = "바이올렛";
+      console.log(firstName ?? lastName ?? nickName); // false
+```
+위에서 ??가 아니라 ||연산자를 사용할경우 "바이올렛"이 리턴되는데 ??연산자를 사용할경우 false가 리턴된다.(false로 값이 정의되있기 때문)
+
+### ??의 우선순위는 낮다
+??의 우선순위는 낮기떄문에 해당 연산자를 쓸경우 왠만하면 ()안에 값을 정의해주는게 좋다.
+```js run
+let height = null;
+let width = null;
+
+// 괄호를 추가!
+let area = (height ?? 100) * (width ?? 50);
+
+alert(area); // 5000
+```
+그리고 연관성 이슈때문에 &&나 ||와 함께 ??는 사용불가능하다.
+
+## 1 - 13 while-for
+### while
+while반복문은 소괄호 안에 조건이 false가 될때까지 코드블럭내에 문을 실행합니다.
+```js run
+let i = 0;
+while (i < 3) { // 0, 1, 2가 출력됩니다.
+  alert( i );
+  i++;
+}
+```
+반복문 본문이 한 번 실행되는 것을 반복(iteration, 이터레이션) 이라고 부릅니다. 위 예시에선 반복문이 세 번의 이터레이션을 만듭니다.
+
+### 'do..while' 반복문
+do..while 문법은 조건이 truthy 인지 아닌지에 상관없이, 본문을 최소한 한 번이라도 실행하고 싶을 때만 사용해야 합니다
+```js run
+let i = 0;
+do {
+  alert( i );
+  i++;
+} while (i < 0); // 0이 출력된다 일반적인 while문이었으면 출력안된다.
+```
+### for
+for문은 워낙 유명하기때문에 특이점만 짚어보겠습니다.
+```js run
+let i = 0;
+
+for (; i < 3;) {
+  alert( i++ );
+}
+```
+위처럼 부분적으로 생략가능하다
+
+### 반복문 빠져나오기
+#### break
+반복문 안에서 break를 마주하면 해당 반복문을 종료합니다.
+```js run
+let sum = 0;
+for(i=1;i<3;i++){
+if(sum===3){
+break;
+}
+sum+=i;
+}
+```
+위와같이 진행되면 i=2일떄까지만 반복되고 3일때는 종료되서 결국 sum===3;
+
+#### continue
+반복문 안에서 continue를 마주치면 해당 문을 건너뛰고 다음부터 진행한다.
+```js run
+let sum = 0;
+for(i=1;i<3;i++){
+if(i===2){
+break;
+}
+sum+=i;
+}
+```
+위와같이 진행되면 i=2일때 해당문을 건너뛰고(이터레이션을 건너뛰고) sum===4;
+
+#### label break
+label break는 중첩 반복문 안에서 원하는 반복문을 종료하고 싶을떄 사용합니다.
+```js run
+first:for(i=0;i<3;i++){
+        second:for(j=0;j<5;j++){
+          if(j===2) break first;
+        }
+      }
+```
+위와 같이 작성시 j===2가 되면 상위 반복문인 first가 종료됩니다.
+
+## 1 - 14 switch
+복수의 if 조건문은 switch문으로 바꿀 수 있습니다. switch문을 사용한 비교법은 특정 변수를 다양한 상황에서 비교할 수 있게 해줍니다. 코드 자체가 비교 상황을 잘 설명한다는 장점도 있습니다.
+```js run
+const x = "value1" 
+switch(x) {
+  case 'value1':  // if (x === 'value1')
+    ...
+    [break]
+  case 'value2':  // if (x === 'value2')
+    ...
+    [break]
+  default:
+    ...
+    [break] // default는 필수가 아님
+}
+```
+
+## 1 - 15 function-basics
+### 함수
+스크립트를 작성하다 보면 유사한 동작을 하는 코드가 여러 곳에서 필요할 때가 많습니다. 즉 재사용을 위함<br>
 
 
