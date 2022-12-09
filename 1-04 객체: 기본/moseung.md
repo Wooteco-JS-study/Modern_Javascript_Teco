@@ -97,3 +97,81 @@ Object.assign(user)
 
 ### 중첩 객체 복사
 객체내에 중첩으로 객체가 있을경우에 문제가 생긴다.이 문제를 해결하려면 user[key]의 각 값을 검사하면서, 그 값이 객체인 경우 객체의 구조도 복사해주는 반복문을 사용해야 합니다. 이런 방식을 '깊은 복사(deep cloning)'라고 합니다.
+
+## 4 - 3 garbage-collection
+자바스크립트는 눈에 보이지 않는 곳에서 메모리 관리를 수행합니다. 이를 garbage-collection이라 합니다.
+### garbage-collection 기준
+'도달 가능한(reachable)' 값은 쉽게 말해 어떻게든 접근하거나 사용할 수 있는 값을 의미합니다. 도달 가능한 값은 메모리에서 삭제되지 않습니다.
+### 내부 알고리즘
+* 가비지 컬렉터는 루트(root) 정보를 수집하고 이를 'mark(기억)' 합니다.
+* 루트가 참조하고 있는 모든 객체를 방문하고 이것들을 'mark' 합니다.
+* mark 된 모든 객체에 방문하고 그 객체들이 참조하는 객체도 mark 합니다. 한번 방문한 객체는 전부 mark 하기 때문에 같은 객체를 다시 방문하는 일은 없습니다.
+* 루트에서 도달 가능한 모든 객체를 방문할 때까지 위 과정을 반복합니다.
+* mark 되지 않은 모든 객체를 메모리에서 삭제합니다.
+
+## 4 - 4 object-methods
+### 메서드 만들기
+```js run
+const abab = {
+        print: function () {
+          console.log("hi");
+        },
+      };//이게 기본값이고 :와 function을 지워도 똑같이 작동한다.
+```
+
+### 메서드와 this
+객체내에서 this를 호출하면 현재 객체를 의미한다.<br>
+화살표 함수는 일반 함수와는 달리 '고유한' `this`를 가지지 않습니다. 화살표 함수에서 `this`를 참조하면, 화살표 함수가 아닌 '평범한' 외부 함수에서 `this` 값을 가져옵니다. 아래 예시에서 함수 `arrow()`의 `this`는 외부 함수 `user.sayHi()`의 `this`가 됩니다. <br>
+이번 우테코에서 비동기에 콜백함수를 넘겨주고 넘겨줄때 this를 호출당시의 this를 바인딩해줌으로써 해결했는데 애로우 함수를 사용하면 이를 해결가능하다.
+```js run
+ play = () => {
+    InputView.readUserMoney((userMoney) => {
+      this.makeLotto(userMoney);
+      this.printUserLottos();
+      this.printUserLottoList();
+      this.getWinningNumber();
+    });
+  };
+```
+그리고 자바스크립트의 this는 다른 프로그래밍 언어의 this와 동작 방식이 다릅니다. this 값은 런타임에 결정됩니다. 컨텍스트에 따라 달라진다.
+
+## 4 - 5 constructor-new
+### new연산자와 생성자 함수
+생성자 함수(constructor function)와 일반 함수에 기술적인 차이는 없습니다. 다만 생성자 함수는 아래 두 관례를 따릅니다.그래서 class를 만들때 앞글자를 대문자로 딴다.
+* 함수 이름의 첫 글자는 대문자로 시작합니다.
+* 반드시 'new' 연산자를 붙여 실행합니다.
+생성자 함수에는 값을 return하는 방향으로 잘 작성안한다.
+
+## 4 - 6 optional-chaining
+optional chaining인?.은 ?.'앞'의 평가 대상이 undefined나 null이면 평가를 멈추고 undefined를 반환합니다.
+```js run
+const abab = {
+        print: function () {
+          console.log("hi");
+        },
+      };
+      console.log(abab?.akak);// undefined 옵셔널 체이닝이 없으면 error를 띄운다.
+```
+
+## 4 - 7 symbol
+심볼은 유일한 식별자를 만들고 싶을떄 선언한다.
+```js run
+let id1 = Symbol("id");
+let id2 = Symbol("id");
+
+alert(id1 == id2); // false
+```
+
+## 4 - 8 object-toPrimitive
+```js run
+const abab = {
+        print: function () {
+          console.log("hi");
+        },
+      };
+      console.log(abab.toString());
+      console.log(abab.valueOf());
+```
+위 두개의 메소드로 형변환 가능하고 결과값은 아래 사진과 같다.
+![image](https://user-images.githubusercontent.com/103626175/206748199-45b7410a-d698-4e61-8a91-8a8df675d0d0.png)
+
