@@ -30,7 +30,7 @@
 ```html
 <!doctype html>
 <script type="module">
-	// 해당 스크립트가 모듈이란 걸 브라우저에게 알려줘야 한다
+  // 해당 스크립트가 모듈이란 걸 브라우저에게 알려줘야 한다
   import {sayHi} from './say.js';
   document.body.innerHTML = sayHi('John');
 </script>
@@ -40,7 +40,7 @@
 
 - CommonJS (CJS)
   - CJS module loader는 동기적으로 작동
-  - CJS는 기본적으로 `require/module.exports` 를 동적으로 진행되기 떄문에, 빌드 타임에 정적 분석을 적용하기 어렵고, 런타임에서만 모듈 관계를 파악할 수 있다
+  - CJS는 기본적으로 `require/module.exports` 를 동적으로 진행되기 때문에, 빌드 타임에 정적 분석을 적용하기 어렵고, 런타임에서만 모듈 관계를 파악할 수 있다
   - CJS가 기본값이다
   ```js
   // add.js
@@ -82,6 +82,7 @@
   ```
 
 - 모듈이 여러 곳에서 사용되더라도 최초 호출 시 한 번만 실행되고, 실행된 모듈은 필요한 곳에 공유되므로 한 모듈에서 객체를 수정하면 다른 모듈에서도 변경사항 확인 가능
+
   ```js
   // 📁 admin.js
   export let admin = { };
@@ -132,6 +133,7 @@
   - 외부 모듈 스크립트 `<script type="module" src="...">`를 다운로드할 때 브라우저의 HTML 처리를 중단하지 않는다. 외부 모듈 스크립트와 기타 리소스를 병렬적으로 불러온다
   - 모듈 스크립트는 HTML 문서가 완전히 준비될 때까지 대기하다가, HTML 문서가 만들어진 후 실행된다
   - 스크립트의 순서가 유지된다
+  - defer처럼 작동한다
   ```html
   <script type="module">
     alert(typeof button); // 모듈 스크립트는 지연 실행되기 때문에 페이지가 모두 로드되고 난 다음에 alert 함수가 실행
@@ -154,8 +156,7 @@
   - 광고나 문서 레벨 이벤트 리스너, 카운터 등 어디에도 종속되지 않는 기능 구현시 사용
 
   ```html
-  <!-- 필요한 모듈(analytics.js)의 로드가 끝나면 -->
-  <!-- 문서나 다른 <script>가 로드되길 기다리지 않고 바로 실행-->
+  <!-- 필요한 모듈(analytics.js)의 로드가 끝나면 문서나 다른 <script>가 로드되길 기다리지 않고 바로 실행-->
   <script async type="module">
     import {counter} from './analytics.js';
 
@@ -172,8 +173,7 @@
   - src 속성값이 동일한 외부 스크립트는 한 번만 실행
   - 다른 오리진에서 모듈 스크립트를 불러오려면 CORS 헤더 필요
   ```html
-  <!-- another-site.com이 Access-Control-Allow-Origin을 지원해야만 외부 모듈을 불러올 수 있다 -->
-  <!-- 그렇지 않으면 스크립트는 실행되지 않는다 -->
+  <!-- another-site.com이 Access-Control-Allow-Origin을 지원해야만 외부 모듈을 불러올 수 있다. 그렇지 않으면 스크립트는 실행되지 않는다 -->
   <script type="module" src="http://another-site.com/their.js"></script>
   ```
 
@@ -190,8 +190,8 @@
   </script>
 
   <script nomodule>
-    alert("type=module을 해석할 수 있는 브라우저는 nomodule 타입의 스크립트는 넘어갑니다. 따라서 이 alert 문은 실행되지 않습니다.")
-    alert("오래된 브라우저를 사용하고 있다면 type=module이 붙은 스크립트는 무시됩니다. 대신 이 alert 문이 실행됩니다.");
+    alert("type=module을 해석할 수 있는 브라우저는 nomodule 타입의 스크립트는 넘어가므로 이 alert 문은 실행되지 않는다")
+    alert("오래된 브라우저를 사용하고 있다면 type=module이 붙은 스크립트는 무시되고, 대신 이 alert 문이 실행된다");
   </script>
   ```
 
@@ -229,7 +229,6 @@ export class User {
 function sayHi(user) {
   alert(`Hello, ${user}!`);
 }
-
 export {sayHi}; 
 ```
 
