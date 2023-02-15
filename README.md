@@ -59,11 +59,6 @@
         <img src="https://avatars.githubusercontent.com/u/108778921?v=4" alt="이다인 프로필" />
       </a>
     </td>
-    <td align="center" width="92px">
-      <a href="https://github.com/jlee0505" target="_blank">
-        <img src="https://avatars.githubusercontent.com/u/54488364?v=4" alt="이현정 프로필" />
-      </a>
-    </td>
   </tr>
   <tr>
     <td align="center">
@@ -101,11 +96,6 @@
         이다인
       </a>
     </td>
-    <td align="center">
-      <a href="https://github.com/jlee0505" target="_blank">
-        이현정
-      </a>
-    </td>
   </tr>
 </table>
 
@@ -118,33 +108,114 @@
 <table>
   <thead>
     <tr>
+      <th>날짜</th>
       <th>파트</th>
       <th>제목</th>
-      <th>날짜</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td rowspan="14"><strong>파트 1<br />코어 자바스크립트</strong></td>
-      <td>01. 소개</td>
-      <td rowspan="6">2022.12.10(토)</td>
+      <td rowspan="6">2022.12.10 (토)</td>
+      <td rowspan="6">
+        <strong>파트 1<br />코어 자바스크립트</strong>
+      </td>
+      <td>
+      <a
+          href="https://github.com/Wooteco-JS-study/Modern_Javascript_Teco/tree/main/1-01%20%EC%86%8C%EA%B0%9C"
+          >01. 소개</a
+        >
+        </td>
     </tr>
     <tr>
-      <td>02. 자바스크립트 기본</td>
+      <td>
+       <a
+          href="https://github.com/Wooteco-JS-study/Modern_Javascript_Teco/tree/main/1-02%20%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%20%EA%B8%B0%EB%B3%B8"
+          >02. 자바스크립트 기본</a
+        >
+       </td>
     </tr>
     <tr>
-      <td>03. 코드 품질</td>
+      <td>
+       <a
+          href="https://github.com/Wooteco-JS-study/Modern_Javascript_Teco/tree/main/1-03%20%EC%BD%94%EB%93%9C%20%ED%92%88%EC%A7%88"
+          >03. 코드 품질</a
+        >
+        </td>
     </tr>
     <tr>
-      <td>04. 객체: 기본</td>
+      <td>
+       <a
+          href="https://github.com/Wooteco-JS-study/Modern_Javascript_Teco/tree/main/1-04%20%EA%B0%9D%EC%B2%B4:%20%EA%B8%B0%EB%B3%B8"
+          >04. 객체: 기본</a
+        >
+        </td>
     </tr>
-     <tr>
-      <td>05. 자료구조와 자료형</td>
+    <tr>
+      <td>
+       <a
+          href="https://github.com/Wooteco-JS-study/Modern_Javascript_Teco/tree/main/1-05%20%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0%EC%99%80%20%EC%9E%90%EB%A3%8C%ED%98%95"
+          >05. 자료구조와 자료형</a
+        >
+        </td>
     </tr>
-     <tr>
-      <td>06. 함수 심화학습</td>
+    <tr>
+      <td>
+       <a
+          href="https://github.com/Wooteco-JS-study/Modern_Javascript_Teco/tree/main/1-06%20%ED%95%A8%EC%88%98%20%EC%8B%AC%ED%99%94%ED%95%99%EC%8A%B5"
+          >06. 함수 심화학습</a
+        >
+        </td>
     </tr>
-  </td>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>날짜</th>
+      <th>발표자</th>
+      <th>발표자료</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="6">2022.12.24 (토)</td>
+      <td>김승모</td>
+      <td>
+        <a
+          href="https://github.com/Wooteco-JS-study/Modern_Javascript_Teco/blob/main/2%EC%A3%BC%EC%B0%A8/moseung.md"
+          >6강 advanced Function</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>강주혁</td>
+      <td>
+        <a
+          href="https://github.com/Wooteco-JS-study/Modern_Javascript_Teco/blob/main/2%EC%A3%BC%EC%B0%A8/kangju2000.md"
+          >프라미스와 async, await</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>구련아</td>
+      <td>
+        <a
+          href="https://github.com/Wooteco-JS-study/Modern_Javascript_Teco/blob/main/2%EC%A3%BC%EC%B0%A8/anottrx.md"
+          >모듈과 커링</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>윤정민</td>
+      <td>
+        <a
+          href="https://github.com/Wooteco-JS-study/Modern_Javascript_Teco/blob/main/2%EC%A3%BC%EC%B0%A8/cruelladevil.md"
+          >프로토타입</a
+        >
+      </td>
+    </tr>
+  </tbody>
 </table>
 
 <br />
